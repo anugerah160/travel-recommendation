@@ -8,95 +8,67 @@
 </head>
 <body>
     <nav>
-        <div class="nav-left">
+        <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about-us">About Us</a>
             <a href="#contact-us">Contact Us</a>
         </div>
-        <div class="nav-right">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-            <button>Reset</button>
+        <div class="nav-actions">
+            <input id="searchInput" type="text" placeholder="Search">
+            <button onclick="searchPlaces()">Search</button>
+            <button onclick="resetSearch()">Reset</button>
         </div>
     </nav>
-    
-    <header id="home">
+    <section id="home">
         <div class="home-left">
             <h1>EXPLORE <br>DREAM <br>DESTINATION</h1>
             <p>Discover beautiful places around the world with us.</p>
         </div>
         <div class="home-right">
-            <h2>Recommended Places</h2>
-            <div class="recommendation-container">
-                <div class="recommendation-card">
-                    <img src="./images/place1.jpg" alt="Place 1">
-                    <h3>Bali, Indonesia</h3>
-                    <p>Experience the beauty of Bali with its stunning beaches and rich culture.</p>
-                    <button>Select</button>
-                </div>
-                <div class="recommendation-card">
-                    <img src="./images/place2.jpg" alt="Place 2">
-                    <h3>Paris, France</h3>
-                    <p>Explore the romantic city of Paris, home to the Eiffel Tower and amazing cuisine.</p>
-                    <button>Select</button>
-                </div>
-                <div class="recommendation-card">
-                    <img src="./images/place3.jpg" alt="Place 3">
-                    <h3>Kyoto, Japan</h3>
-                    <p>Immerse yourself in the beauty of Kyoto's ancient temples and cherry blossoms.</p>
-                    <button>Select</button>
-                </div>
+            <div class="recommendations">
+                <h2>Recommended Places</h2>
+                <div id="recommendation-container"></div>
             </div>
         </div>
-    </header>
-    
+    </section>
     <section id="about-us">
-        <h1>ABOUT US</h1>
-        <p>We are a team of travel enthusiasts who love exploring the world and sharing the best destinations with you.</p>
+        <h1 class="about-title">ABOUT US</h1>
+        <h5>We are passionate about connecting travelers with the most beautiful destinations in the world.</h5>
         <div class="team-container">
             <h2>OUR TEAM</h2>
-            <div class="team-members">
-                <div class="card">
-                    <img src="./images/member1.jpg" alt="Member 1">
-                    <h3>John Doe</h3>
-                    <p>CEO & Founder</p>
+            <div class="team">
+                <div class="team-card"> 
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJAppmGh87qQmWRfMPuieELLHz_2WdTbq7CQ&s" alt="Team Member"> 
+                    <h3>Anugerah</h3> 
+                    <p>CEO</p> 
                 </div>
-                <div class="card">
-                    <img src="./images/member2.jpg" alt="Member 2">
-                    <h3>Jane Smith</h3>
-                    <p>Travel Expert</p>
+                <div class="team-card"> 
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJAppmGh87qQmWRfMPuieELLHz_2WdTbq7CQ&s" alt="Team Member"> 
+                    <h3>Lisa</h3> 
+                    <p>Travel Guide</p> 
                 </div>
-                <div class="card">
-                    <img src="./images/member3.jpg" alt="Member 3">
-                    <h3>Emily Johnson</h3>
-                    <p>Marketing Specialist</p>
+                <div class="team-card"> 
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJAppmGh87qQmWRfMPuieELLHz_2WdTbq7CQ&s" alt="Team Member"> 
+                    <h3>Christoper</h3> 
+                    <p>Marketing</p> 
                 </div>
             </div>
         </div>
     </section>
-    
     <section id="contact-us">
-        <h1>CONTACT US</h1>
-        <form>
-            <fieldset>
+        <div class="contact-container">
+            <h1>CONTACT US</h1>
+            <form>
                 <label for="name">Name</label>
-                <input name="name" type="text" placeholder="Enter Your Name...">
-                
+                <input id="name" type="text" placeholder="Enter Your Name...">
                 <label for="email">Email</label>
-                <input name="email" type="email" placeholder="Enter Your Email...">
-                
+                <input id="email" type="email" placeholder="Enter Your Email...">
                 <label for="message">Message</label>
-                <textarea name="message" cols="30" rows="5" placeholder="Enter Your Message..."></textarea>
-                
+                <textarea id="message" cols="30" rows="10" placeholder="Enter Your Message..."></textarea>
                 <button type="submit">Send</button>
-            </fieldset>
-        </form>
+            </form>
+        </div>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 Travel Recommendation. All Rights Reserved.</p>
-    </footer>
-    
     <script src="travel_recommendation.js"></script>
 </body>
 </html>
