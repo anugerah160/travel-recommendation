@@ -1,4 +1,5 @@
 # travel-recommendation #
+![{D132DD96-AF74-4393-955A-24A095CB81D2}](https://github.com/user-attachments/assets/a1115e1e-218c-48d8-837e-df7f6437c6c9)
 
 a webpage layout for a travel recommendation platform.
 
