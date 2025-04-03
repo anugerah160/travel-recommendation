@@ -7,6 +7,8 @@
     <title>Travel Recommendation</title>
 </head>
 <body>
+
+    <!-- NAVBAR -->
     <nav>
         <div class="nav-links">
             <a href="#home">Home</a>
@@ -19,19 +21,49 @@
             <button onclick="resetSearch()">Reset</button>
         </div>
     </nav>
+
+    <!-- HOME -->
     <section id="home">
         <div class="home-left">
             <h1>EXPLORE <br>DREAM <br>DESTINATION</h1>
             <p>Discover beautiful places around the world with us.</p>
         </div>
-        <div class="home-right">
-            <div class="recommendations">
-                <h2>Recommended Places</h2>
-                <div id="recommendation-container"></div>
-            </div>
-        </div>
     </section>
-    <section id="about-us">
+
+    <!-- TOP RECOMMENDATIONS -->
+    <section id="top-recommendations">
+        <div class="recommendations">
+            <h2 style="color: black;">Recommended Places</h2>
+            <button id="prevBtn">❮</button>
+            <div id="recommendation-containers">
+                <div class="place-card">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+            </div>
+            <button id="nextBtn">❯</button>
+        </div>
+        
+    </section>
+
+    <!-- ABOUT US -->
+    <!-- <section id="about-us">
         <h1 class="about-title">ABOUT US</h1>
         <h5>We are passionate about connecting travelers with the most beautiful destinations in the world.</h5>
         <div class="team-container">
@@ -68,7 +100,7 @@
                 <button type="submit">Send</button>
             </form>
         </div>
-    </section>
+    </section> -->
     <script src="travel_recommendation.js"></script>
 </body>
 </html>
