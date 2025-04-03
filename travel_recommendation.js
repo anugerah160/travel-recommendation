@@ -5,6 +5,8 @@ async function fetchData() {
         const response = await fetch("travel_recommendation_api.json");
         data = await response.json();
         displayPlaces(data.countries[0]?.cities || []);
+        displayPlaces(data.countries[1]?.cities || []);
+        displayPlaces(data.countries[2]?.cities || []);
     } catch (error) {
         console.error("Error loading data:", error);
     }
@@ -17,7 +19,7 @@ function displayPlaces(places) {
         return;
     }
 
-    container.innerHTML = "";
+    // container.innerHTML = "";
 
     if (places.length === 0) {
         container.innerHTML = "<p>No results found.</p>";
@@ -86,6 +88,22 @@ function resetSearch() {
     document.getElementById("searchInput").value = "";
     displayPlaces(data.countries[0]?.cities || []);
 }
+
+const container = document.getElementById("recommendation-containers");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+// Geser jumlah card sesuai lebar satu card
+const cardWidth = document.querySelector(".place-card").offsetWidth + 30; // Tambah gap
+
+nextBtn.addEventListener("click", () => {
+    container.scrollLeft += cardWidth;
+});
+
+prevBtn.addEventListener("click", () => {
+    container.scrollLeft -= cardWidth;
+});
+
 
 // Muat data setelah halaman selesai dimuat
 document.addEventListener("DOMContentLoaded", fetchData);
