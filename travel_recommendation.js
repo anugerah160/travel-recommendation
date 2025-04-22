@@ -89,19 +89,33 @@ function resetSearch() {
     displayPlaces(data.countries[0]?.cities || []);
 }
 
-const container = document.getElementById("recommendation-containers");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+document.querySelectorAll(".recommendations").forEach((slider) => {
+    const prevBtn = slider.querySelector(".prevBtn");
+    const nextBtn = slider.querySelector(".nextBtn");
+    const container = slider.querySelector(".recommendation");
+    const card = container.querySelector(".place-card, .place-card2");
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 1264; 
 
-// Geser jumlah card sesuai lebar satu card
-const cardWidth = document.querySelector(".place-card").offsetWidth + 30; // Tambah gap
+    function updateButtons() {
+        console.log("l");
+        prevBtn.style.display = container.scrollLeft > 0 ? "block" : "none";
+        nextBtn.style.display = 
+            container.scrollLeft + container.clientWidth >= container.scrollWidth
+            ? "none" : "block";
+    }
 
-nextBtn.addEventListener("click", () => {
-    container.scrollLeft += cardWidth;
-});
+    nextBtn.addEventListener("click", () => {
+        container.scrollLeft += cardWidth;
+        setTimeout(updateButtons, 300);
+    });
 
-prevBtn.addEventListener("click", () => {
-    container.scrollLeft -= cardWidth;
+    prevBtn.addEventListener("click", () => {
+        container.scrollLeft -= cardWidth;
+        setTimeout(updateButtons, 300);
+    });
+
+    document.addEventListener("DOMContentLoaded", updateButtons);
 });
 
 

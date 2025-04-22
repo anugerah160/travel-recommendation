@@ -8,9 +8,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* background: rgba(0, 0, 0, 0.6) url('./images/wallpaperku.jpg') no-repeat center center fixed;
-    background-size: cover; */
-    background: var(--primary);
+    background: rgba(0, 0, 0, 0.6) url('./images/wallpaperku.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: white;
     box-sizing: border-box;
 }
@@ -89,8 +88,8 @@ nav .buttons-container {
     align-items: center;
     justify-content: space-between;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5) url('./images/wallpaperku.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+
 }
 #home::after {
     content: "";
@@ -134,23 +133,26 @@ nav .buttons-container {
 
 /* Recommendation Section */
 #top-recommendations{
-    margin-top: 100px;
-    /* width: auto; */
     height: 90vh;
-    padding: 0 60px;
+    padding: 100px 60px 0;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    /* background: rgba(0, 0, 0, 0.5); */
+    background: var(--primary);
 }
 .recommendations{
     position: relative;
+    border: 1px solid black;
+    flex: 1;
+    margin: 20px 0;
 }
-#recommendation-containers {
-    height: 70%;
+.recommendation.containers {
+    height: auto;
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
     flex-wrap: nowrap;
     min-width: 100%;
-    gap: 50px;
+    gap: 56px;
     /* background: rgba(0, 0, 0, 0.5); */
     /* background-color: white; */
     scroll-behavior: smooth;
@@ -168,10 +170,13 @@ nav .buttons-container {
     cursor: pointer;
 
 }
-.place-card img {
+.place-card img, .place-card2 img {
     width: 100%;
+    height: auto;
+    object-fit: cover;
     border-radius: 5px;
 }
+
 .place-card div{
     position: absolute;
     right: 0;
@@ -194,7 +199,7 @@ nav .buttons-container {
     background: darkblue;
 }
 
-#prevBtn, #nextBtn {
+.prevBtn, .nextBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -208,16 +213,76 @@ nav .buttons-container {
     border-radius: 5px;
     z-index: 10;
 }
+.prevBtn:nth-child(1), .nextBtn:nth-of-type(3){
+    padding: 7px 10px;
+    top: 50%;
+}
+.prevBtn { left: -20px; }
+.prevBtn:nth-child(1) { left: -17px; }
+.nextBtn { right: -20px; }
+.nextBtn:nth-child(3) { right: -17px; }
 
-#prevBtn { left: -20px; }
-#nextBtn { right: -10px; }
+.recommendation.country {
+    height: auto;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    gap: 53px;
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* background-color: white; */
+    scroll-behavior: smooth;
+}
 
+.place-card2 {
+    width: 250px;
+    flex-shrink: 0;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+.place-card2:hover{
+    cursor: pointer;
+
+}
+.place-card2 img {
+    width: 100%;
+    border-radius: 5px;
+}
+.place-card2 div{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 10px 10px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px white;
+}
+.place-card2 button {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.place-card2 button:hover {
+    background: darkblue;
+}
 
 /* About Us Section */
 #about-us {
-    min-height: 100vh;
     padding: 50px;
-    background: rgba(0, 0, 0, 0.5);
+    height: 90vh;
+    padding: 100px 60px 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--primary);
+    color: black;
 }
 #about-us h1 {
     font-size: 2.5rem;
@@ -225,6 +290,7 @@ nav .buttons-container {
 }
 .team-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -258,10 +324,66 @@ nav .buttons-container {
 #contact-us {
     min-height: 100vh;
     padding: 50px;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--primary);
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 500px;
+}
+.contact-container form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-container form .contact-top{
+    display: flex;
+    width: 60%;
+    height: 7rem;
+    justify-content: space-between;
+    /* align-items: center; */
+    border: 1px solid black;
+}
+.contact-container form .contact-top .half{
+    display: flex;
+    width: 48%;
+    flex-direction: column;
+    height: 2rem;
+    border: 1px solid black;
+}
+.contact-container form .contact-top .half input{
+    padding: 1rem;
+    color: white;
+    font-size: 1rem;
+    width: auto;
+    border-radius: 0.5rem;
+    border: 1px solid white;
+    background-color: rgb(27, 7, 58);
+}
+.contact-container form .contact-bot{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: 2rem 0;
+    gap: 5px;
+}
+.contact-container form .contact-bot textarea{
+    padding: 13px;
+    color: black;
+    font-size: 1rem;
+    width: auto;
+    border-radius: 0.5rem;
 }
 .contact-card {
     background: rgba(255, 255, 255, 0.1);
