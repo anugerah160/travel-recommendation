@@ -32,10 +32,14 @@
 
     <!-- TOP RECOMMENDATIONS -->
     <section id="top-recommendations">
+        <h2 style="color: black;">Recommended Places</h2>
         <div class="recommendations">
-            <h2 style="color: black;">Recommended Places</h2>
-            <button id="prevBtn">❮</button>
-            <div id="recommendation-containers">
+            <button class="prevBtn">❮</button>
+            <div class="recommendation containers">
+                <div class="place-card">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
                 <div class="place-card">
                     <img src="/images/angko.jpg" alt="angko">
                     <div>Angkor Wat, Cambodia</div>
@@ -57,13 +61,76 @@
                     <div>Angkor Wat, Cambodia</div>
                 </div>
             </div>
-            <button id="nextBtn">❯</button>
+            <button class="nextBtn">❯</button>
         </div>
-        
+
+        <div class="recommendations">
+            <button class="prevBtn">❮</button>
+            <div class="recommendation country">
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+                <div class="place-card2">
+                    <img src="/images/angko.jpg" alt="angko">
+                    <div>Angkor Wat, Cambodia</div>
+                </div>
+            </div>
+            <button class="nextBtn">❯</button>
+            </div>
+        </div>
     </section>
 
     <!-- ABOUT US -->
-    <!-- <section id="about-us">
+    <section id="about-us">
         <h1 class="about-title">ABOUT US</h1>
         <h5>We are passionate about connecting travelers with the most beautiful destinations in the world.</h5>
         <div class="team-container">
@@ -87,20 +154,29 @@
             </div>
         </div>
     </section>
+
     <section id="contact-us">
         <div class="contact-container">
             <h1>CONTACT US</h1>
             <form>
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Enter Your Name...">
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Enter Your Email...">
-                <label for="message">Message</label>
-                <textarea id="message" cols="30" rows="10" placeholder="Enter Your Message..."></textarea>
+                <div class="contact-top">
+                    <div class="half">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" placeholder="Enter Your Name...">
+                    </div>
+                    <div class="half">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="Enter Your Email...">
+                    </div>
+                </div>
+                <div class="contact-bot">
+                    <label for="message">Message</label>
+                    <textarea id="message" cols="30" rows="10" placeholder="Enter Your Message..."></textarea>
+                </div>
                 <button type="submit">Send</button>
             </form>
         </div>
-    </section> -->
+    </section>
     <script src="travel_recommendation.js"></script>
 </body>
 </html>
