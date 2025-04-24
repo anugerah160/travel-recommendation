@@ -133,77 +133,163 @@ nav .buttons-container {
 
 /* Recommendation Section */
 #top-recommendations{
-    height: 90vh;
-    padding: 100px 60px 0;
+    height: 150vh;
+    width: 100%;
+    padding-top: 100px;
+    /* padding: 100px 60px 0; */
     display: flex;
     flex-direction: column;
     overflow: hidden;
     background: var(--primary);
+    gap: 50px;
 }
-.recommendations{
+/* Recomendation Wrap Top */
+.wrap {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
     position: relative;
-    border: 1px solid black;
-    flex: 1;
-    margin: 20px 0;
-}
-.recommendation.containers {
-    height: auto;
+  }
+
+  .carousel {
     display: flex;
-    overflow-x: hidden;
-    flex-wrap: nowrap;
-    min-width: 100%;
-    gap: 56px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* background-color: white; */
-    scroll-behavior: smooth;
-}
-.place-card {
-    width: 450px;
-    flex-shrink: 0;
-    color: black;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+    left: -100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     position: relative;
-}
-.place-card:hover{
-    cursor: pointer;
+    transform: translateX(100%);
+  }
 
-}
-.place-card img, .place-card2 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
-}
+  @media (min-width: 30em) {
+    .carousel {
+      left: -50%;
+      transform: translateX(50%);
+    }
+  }
 
-.place-card div{
+  @media (min-width: 40em) {
+    .carousel {
+      left: -33.33333%;
+      transform: translateX(33.33333%);
+    }
+    .carousel.second {
+      left: -20%;
+      transform: translateX(20%);
+    }
+  }
+
+  .carousel.is-reversing {
+    transform: translateX(-100%);
+  }
+
+  @media (min-width: 30em) {
+    .carousel.is-reversing {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (min-width: 40em) {
+    .carousel.is-reversing {
+      transform: translateX(-33.33333%);
+    }
+    .carousel.second.is-reversing {
+      transform: translateX(-20%);
+    }
+  }
+
+  .carousel.is-set {
+    transform: none;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-seat {
+    flex: 1 0 100%;
+    order: 2;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 475px;
+    min-height: 263px;
+}
+.carousel-seat.second{
+    min-width: 253px;
+    min-height: 168px;
+  }
+
+  
+  @media (min-width: 30em) {
+    .carousel-seat {
+      flex-basis: 50%;
+    }
+  }
+
+  @media (min-width: 40em) {
+    .carousel-seat {
+      flex-basis: 33.33333%;
+    }
+    .carousel-seat.second {
+        flex-basis: 20%;
+      }
+  }
+
+  .carousel-seat.is-ref {
+    order: 1;
+  }
+  .card{
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  .card::after {
+      content: '';
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.3s ease;
+  }
+  .card:hover::after {
+      background: rgba(0, 0, 0, 0.2);
+  }
+  .card img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      display: block;
+  }
+  .card div{
+      position: absolute;
+      bottom: 0;
+      color: white;
+      padding: 10px 10px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px black;
+  }
+
+  .controls button {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 0 10px 10px 0;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px white;
-}
-.place-card button {
-    background: blue;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.place-card button:hover {
-    background: darkblue;
-}
+    background: #aaa;
+    border: 0;
+    border-radius: 0.25em;
+    color: #eee;
+    padding: 0.5em 1em;
+  }
 
-.prevBtn, .nextBtn {
+  .prevBtn,
+  .nextBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    /* background: rgba(0, 0, 0, 0.5); */
     background: white;
     color: black;
     border: 1px solid black;
@@ -213,65 +299,30 @@ nav .buttons-container {
     border-radius: 5px;
     z-index: 10;
 }
-.prevBtn:nth-child(1), .nextBtn:nth-of-type(3){
+.prevBtn.second,
+.nextBtn.second {
     padding: 7px 10px;
-    top: 50%;
 }
-.prevBtn { left: -20px; }
-.prevBtn:nth-child(1) { left: -17px; }
-.nextBtn { right: -20px; }
-.nextBtn:nth-child(3) { right: -17px; }
-
-.recommendation.country {
-    height: auto;
-    display: flex;
-    overflow: hidden;
-    flex-wrap: nowrap;
-    min-width: 100%;
-    gap: 53px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* background-color: white; */
-    scroll-behavior: smooth;
+.prevBtn {
+    left: 0;
 }
 
-.place-card2 {
-    width: 250px;
-    flex-shrink: 0;
-    color: black;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
-    position: relative;
-}
-.place-card2:hover{
-    cursor: pointer;
-
-}
-.place-card2 img {
-    width: 100%;
-    border-radius: 5px;
-}
-.place-card2 div{
-    position: absolute;
+.nextBtn {
     right: 0;
-    bottom: 0;
-    padding: 0 10px 10px 0;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px white;
 }
-.place-card2 button {
-    background: blue;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+
+.prevBtn:hover,
+.nextBtn:hover,
+.prevBtn:focus,
+.nextBtn:focus {
+    background: orange;
 }
-.place-card2 button:hover {
-    background: darkblue;
+.carousel-seat.second .card div{
+    font-size: 1.5rem;
 }
+/* Recomendation Wrap Top */
+
+
 
 /* About Us Section */
 #about-us {
@@ -425,10 +476,6 @@ nav .buttons-container {
     #home {
         flex-direction: column;
         text-align: center;
-    }
-    .recommendation-container {
-        flex-direction: column;
-        align-items: center;
     }
     .team-container {
         flex-direction: column;
