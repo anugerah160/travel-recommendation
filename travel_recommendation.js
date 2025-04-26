@@ -89,34 +89,53 @@ function resetSearch() {
     displayPlaces(data.countries[0]?.cities || []);
 }
 
-document.querySelectorAll(".recommendations").forEach((slider) => {
-    const prevBtn = slider.querySelector(".prevBtn");
-    const nextBtn = slider.querySelector(".nextBtn");
-    const container = slider.querySelector(".recommendation");
-    const card = container.querySelector(".place-card, .place-card2");
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 1264; 
+// Recomendation Wrap Top Start 
+document.querySelectorAll('.wrap').forEach($wrap => {
+    const $carousel = $wrap.querySelector('.carousel');
+    const $seats = $wrap.querySelectorAll('.carousel-seat');
+    const $toggles = $wrap.querySelectorAll('.toggle');
 
-    function updateButtons() {
-        console.log("l");
-        prevBtn.style.display = container.scrollLeft > 0 ? "block" : "none";
-        nextBtn.style.display = 
-            container.scrollLeft + container.clientWidth >= container.scrollWidth
-            ? "none" : "block";
-    }
+    $toggles.forEach($toggle => {
+        $toggle.addEventListener('click', (e) => {
+        let $el = $wrap.querySelector('.carousel-seat.is-ref');
+        let $newSeat;
 
-    nextBtn.addEventListener("click", () => {
-        container.scrollLeft += cardWidth;
-        setTimeout(updateButtons, 300);
+        $el.classList.remove('is-ref');
+
+        if ($toggle.dataset.toggle === 'next') {
+            $newSeat = next($el);
+            $carousel.classList.remove('is-reversing');
+        } else {
+            $newSeat = prev($el);
+            $carousel.classList.add('is-reversing');
+        }
+
+        $newSeat.classList.add('is-ref');
+        $newSeat.style.order = 1;
+        let current = $newSeat;
+
+        for (let i = 2; i <= $seats.length; i++) {
+            current = next(current);
+            current.style.order = i;
+        }
+
+        $carousel.classList.remove('is-set');
+        void $carousel.offsetWidth;
+        setTimeout(() => {
+            $carousel.classList.add('is-set');
+        }, 50);
+        });
+
+        function next($el) {
+        return $el.nextElementSibling || $seats[0];
+        }
+
+        function prev($el) {
+            return $el.previousElementSibling || $seats[$seats.length - 1];
+        }
     });
-
-    prevBtn.addEventListener("click", () => {
-        container.scrollLeft -= cardWidth;
-        setTimeout(updateButtons, 300);
-    });
-
-    document.addEventListener("DOMContentLoaded", updateButtons);
-});
+});  
+// Recomendation Wrap Top End
 
 
 // Muat data setelah halaman selesai dimuat

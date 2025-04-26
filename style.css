@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: rgba(0, 0, 0, 0.6) url('./images/wallpaperku.jpg') no-repeat center center fixed;
+    background: rgba(0, 0, 0, 0.6) url('public/images/wallpaperku.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background: rgba(0, 0, 0, 0.8);
-    padding: 15px 30px;
+    padding: 15px 4rem;
     position: fixed;
     width: 100%;
     top: 0;
@@ -104,23 +104,8 @@ nav .buttons-container {
       rgba(255, 255, 255, 0) 55%
     );
 }
-#home::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 10%;
-    bottom: -80px;
-    transform: rotateX(180deg);
-    background: linear-gradient(
-      0deg,
-      rgba(1, 1, 3, 1) 8%,
-      rgba(255, 255, 255, 0) 55%
-    );
-    z-index: 999;
-}
 #home .home-left{
-    padding: 150px 0 0 50px;
+    padding: 150px 0 0 4rem;
 }
 #home h1 {
     font-size: 3rem;
@@ -134,76 +119,190 @@ nav .buttons-container {
 /* Recommendation Section */
 #top-recommendations{
     height: 90vh;
-    padding: 100px 60px 0;
+    width: 100%;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     background: var(--primary);
+    gap: 50px;
 }
-.recommendations{
-    position: relative;
-    border: 1px solid black;
-    flex: 1;
-    margin: 20px 0;
-}
-.recommendation.containers {
-    height: auto;
-    display: flex;
-    overflow-x: hidden;
-    flex-wrap: nowrap;
-    min-width: 100%;
-    gap: 56px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* background-color: white; */
-    scroll-behavior: smooth;
-}
-.place-card {
-    width: 450px;
-    flex-shrink: 0;
-    color: black;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
-    position: relative;
-}
-.place-card:hover{
-    cursor: pointer;
-
-}
-.place-card img, .place-card2 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.place-card div{
+#top-recommendations::before {
+    content: "";
+    display: block;
+    background-color: red;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 0 10px 10px 0;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px white;
+    width: 100%;
+    height: 20%;
+    top: 99%;
+    transform: rotateX(180deg);
+    background: linear-gradient(
+      0deg,
+      rgba(1, 1, 3, 1) 8%,
+      rgba(255, 255, 255, 0) 55%
+    );
+    z-index: 999;
 }
-.place-card button {
-    background: blue;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+#top-recommendations h2{
+    padding: 0 4rem;
 }
-.place-card button:hover {
-    background: darkblue;
-}
+/* Recomendation Wrap Top */
+.wrap {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
 
-.prevBtn, .nextBtn {
+  .carousel {
+    display: flex;
+    left: -100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transform: translateX(100%);
+  }
+
+  @media (min-width: 30em) {
+    .carousel {
+      left: -50%;
+      transform: translateX(50%);
+    }
+  }
+
+  @media (min-width: 40em) {
+    .carousel {
+      left: -33.33333%;
+      transform: translateX(33.33333%);
+    }
+    .carousel.second {
+      left: -20%;
+      transform: translateX(20%);
+    }
+  }
+
+  .carousel.is-reversing {
+    transform: translateX(-100%);
+  }
+  .carousel.second.is-reversing {
+    transform: translateX(-20%);
+  }
+
+  @media (min-width: 30em) {
+    .carousel.is-reversing {
+      transform: translateX(-50%);
+    }
+    .carousel.second.is-reversing {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (min-width: 40em) {
+    .carousel.is-reversing {
+      transform: translateX(-33.33333%);
+    }
+    .carousel.second.is-reversing {
+      transform: translateX(-20%);
+    }
+  }
+
+  .carousel.is-set {
+    transform: none;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel.second.is-set {
+    transform: none;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-seat {
+    flex: 1 0 100%;
+    order: 2;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 475px;
+    min-height: 263px;
+}
+.carousel-seat.second{
+    min-width: 253px;
+    min-height: 168px;
+  }
+
+  
+  @media (min-width: 30em) {
+    .carousel-seat {
+      flex-basis: 50%;
+    }
+  }
+
+  @media (min-width: 40em) {
+    .carousel-seat {
+      flex-basis: 33.33333%;
+    }
+    .carousel-seat.second {
+        flex-basis: 20%;
+      }
+  }
+
+  .carousel-seat.is-ref {
+    order: 1;
+  }
+  .card{
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  .card::after {
+      content: '';
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.3s ease;
+  }
+  .card:hover::after {
+      background: rgba(0, 0, 0, 0.2);
+  }
+  .card img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      display: block;
+  }
+  .card div{
+      position: absolute;
+      bottom: 0;
+      color: white;
+      padding: 10px 10px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px black;
+  }
+
+  .controls button {
+    position: absolute;
+    background: #aaa;
+    border: 0;
+    border-radius: 0.25em;
+    color: #eee;
+    padding: 0.5em 1em;
+  }
+
+  .prevBtn,
+  .nextBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    /* background: rgba(0, 0, 0, 0.5); */
     background: white;
     color: black;
     border: 1px solid black;
@@ -213,71 +312,35 @@ nav .buttons-container {
     border-radius: 5px;
     z-index: 10;
 }
-.prevBtn:nth-child(1), .nextBtn:nth-of-type(3){
+.prevBtn.second,
+.nextBtn.second {
     padding: 7px 10px;
-    top: 50%;
 }
-.prevBtn { left: -20px; }
-.prevBtn:nth-child(1) { left: -17px; }
-.nextBtn { right: -20px; }
-.nextBtn:nth-child(3) { right: -17px; }
-
-.recommendation.country {
-    height: auto;
-    display: flex;
-    overflow: hidden;
-    flex-wrap: nowrap;
-    min-width: 100%;
-    gap: 53px;
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* background-color: white; */
-    scroll-behavior: smooth;
+.prevBtn {
+    left: 0;
 }
 
-.place-card2 {
-    width: 250px;
-    flex-shrink: 0;
-    color: black;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
-    position: relative;
-}
-.place-card2:hover{
-    cursor: pointer;
-
-}
-.place-card2 img {
-    width: 100%;
-    border-radius: 5px;
-}
-.place-card2 div{
-    position: absolute;
+.nextBtn {
     right: 0;
-    bottom: 0;
-    padding: 0 10px 10px 0;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px white;
 }
-.place-card2 button {
-    background: blue;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+
+.prevBtn:hover,
+.nextBtn:hover,
+.prevBtn:focus,
+.nextBtn:focus {
+    background: orange;
 }
-.place-card2 button:hover {
-    background: darkblue;
+.carousel-seat.second .card div{
+    font-size: 1.5rem;
 }
+/* Recomendation Wrap Top */
+
+
 
 /* About Us Section */
 #about-us {
-    padding: 50px;
-    height: 90vh;
-    padding: 100px 60px 0;
+    padding: 0 4rem;
+    height: auto;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -288,7 +351,7 @@ nav .buttons-container {
     font-size: 2.5rem;
     text-align: left;
 }
-.team-container {
+.team {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -297,33 +360,117 @@ nav .buttons-container {
     margin-top: 30px;
     flex-wrap: nowrap;
 }
-
-.team {
+.team h2{
+    font-size: 2rem;
+}
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .team-card {
+    background: #f9f9f9;
+    width: 220px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; 
-}
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 2px solid black;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
 
-.team-card {
-    background: white;
-    color: black;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    width: 200px;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
-    flex-shrink: 0;
-}
-.team-card img {
+  .team-card .hovers-profile {
+    background-color: #007bff;
+    border-radius: 50%;
+    width: 200%;
+    transition: 0.3s;
+    position: absolute;
+    height: 145%;
+    top: -200%;
+    left: -50%;
+  }
+  .team-card .profile-pic {
+      width: 120px;
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+      margin: 40px auto 10px;
+      border-radius: 50%;
+      border: 2px solid black;
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+    }
+    
+  .team-card .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+  }
+  
+  .team-card .role {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 15px;
+  }
+  
+  .team-card .details {
+    background: #007bff;
+    color: white;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
     width: 100%;
-    border-radius: 5px;
-}
+    transition: 0.3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  .team-card .details a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 7px;
+    border-radius: 50%;
+  }
+  .team-card .details a:hover{
+    background-color: white;
+    transition: 0.5s linear;
+  }
+  .team-card .details a img:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+  }
+  
+  .team-card:hover .profile-pic {
+    transform: scale(0.85);
+  }
+  
+  .team-card:hover .details {
+    transition: 0.5s linear;
+    bottom: 0;
+  }
+  .team-card:hover .hovers-profile {
+    top: -100%;
+    transition: 0.5s linear;
+  }
+  .team-card:hover .profile-pic {
+    box-shadow: 0 0 0 10px #1369ce;
+    border: 10px solid #f7f5ec;
+    transform: scale(0.7);
+    transition: 0.5s ease-in-out;
+  }
 
 /* Contact Us Section */
 #contact-us {
-    min-height: 100vh;
-    padding: 50px;
     background: var(--primary);
     color: black;
     display: flex;
@@ -337,12 +484,15 @@ nav .buttons-container {
     align-items: center;
     width: 80%;
     height: 500px;
+    font-size: 1rem;
+}
+.contact-container h1{
+    font-size: 2rem;
 }
 .contact-container form{
     display: flex;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -350,17 +500,18 @@ nav .buttons-container {
 .contact-container form .contact-top{
     display: flex;
     width: 60%;
-    height: 7rem;
+    height: 5rem;
     justify-content: space-between;
-    /* align-items: center; */
-    border: 1px solid black;
 }
 .contact-container form .contact-top .half{
     display: flex;
     width: 48%;
     flex-direction: column;
     height: 2rem;
-    border: 1px solid black;
+}
+.contact-container form .contact-top .half label{
+    padding: 0 0 0 5px;
+
 }
 .contact-container form .contact-top .half input{
     padding: 1rem;
@@ -375,7 +526,7 @@ nav .buttons-container {
     display: flex;
     width: 60%;
     flex-direction: column;
-    margin: 2rem 0;
+    margin: 1rem 0;
     gap: 5px;
 }
 .contact-container form .contact-bot textarea{
@@ -383,52 +534,29 @@ nav .buttons-container {
     color: black;
     font-size: 1rem;
     width: auto;
+    background-color: rgb(27, 7, 58);
     border-radius: 0.5rem;
 }
-.contact-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
-    max-width: 500px;
-    text-align: center;
+.contact-container form button{
+    width: 60%;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: black;
+    padding: 8px 0;
+    border-radius: 10px;
+    border: 1.5px solid black;
+    background-color: #007bff;
 }
-.contact-card label {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    margin-top: 10px;
-}
-.contact-card input, .contact-card textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-}
-.contact-card button {
-    background: green;
+.contact-container form button:hover{background-color:#2a91ff;}
+.contact-container form button:focus{
+    background-color: #1369ce;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
 }
-.contact-card button:hover {
-    background: darkgreen;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     #home {
         flex-direction: column;
         text-align: center;
-    }
-    .recommendation-container {
-        flex-direction: column;
-        align-items: center;
     }
     .team-container {
         flex-direction: column;
@@ -436,4 +564,8 @@ nav .buttons-container {
     .team-card {
         width: 100%;
     }
+}
+
+.spacex{
+    height: 50vh;
 }
