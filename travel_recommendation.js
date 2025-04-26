@@ -120,6 +120,7 @@ document.querySelectorAll('.wrap').forEach($wrap => {
         }
 
         $carousel.classList.remove('is-set');
+        void $carousel.offsetWidth;
         setTimeout(() => {
             $carousel.classList.add('is-set');
         }, 50);
@@ -130,18 +131,8 @@ document.querySelectorAll('.wrap').forEach($wrap => {
         }
 
         function prev($el) {
-        return $el.previousElementSibling || $seats[$seats.length - 1];
+            return $el.previousElementSibling || $seats[$seats.length - 1];
         }
-        // function next($el) {
-        //     const index = Array.from($seats).indexOf($el);
-        //     return $seats[(index + 1) % $seats.length];
-        //   }
-          
-        //   function prev($el) {
-        //     const index = Array.from($seats).indexOf($el);
-        //     console.log("prev")
-        //     return $seats[(index - 1 + $seats.length) % $seats.length];
-        //   }
     });
 });  
 // Recomendation Wrap Top End
