@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .wrap {
+      width: 90%;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel {
+      display: flex;
+      left: -100%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      transform: translateX(100%);
+    }
+
+    @media (min-width: 30em) {
+      .carousel {
+        left: -50%;
+        transform: translateX(50%);
+      }
+    }
+
+    @media (min-width: 40em) {
+      .carousel {
+        left: -33.33333%;
+        transform: translateX(33.33333%);
+      }
+    }
+
+    .carousel.is-reversing {
+      transform: translateX(-100%);
+    }
+
+    @media (min-width: 30em) {
+      .carousel.is-reversing {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (min-width: 40em) {
+      .carousel.is-reversing {
+        transform: translateX(-33.33333%);
+      }
+    }
+
+    .carousel.is-set {
+      transform: none;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-seat {
+      flex: 1 0 100%;
+      order: 2;
+      box-sizing: border-box;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 475px;
+      min-height: 263px;
+    }
+
+    
+    @media (min-width: 30em) {
+      .carousel-seat {
+        flex-basis: 50%;
+      }
+    }
+
+    @media (min-width: 40em) {
+      .carousel-seat {
+        flex-basis: 33.33333%;
+      }
+    }
+
+    .carousel-seat.is-ref {
+      order: 1;
+    }
+    .card{
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .card::after {
+        content: '';
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease;
+    }
+    .card:hover::after {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .card img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+        display: block;
+    }
+    .card div{
+        position: absolute;
+        bottom: 0;
+        color: white;
+        padding: 0 10px 10px 0;
+        font-size: 2.2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 10px black;
+    }
+
+    .controls button {
+      position: absolute;
+      background: #aaa;
+      border: 0;
+      border-radius: 0.25em;
+      color: #eee;
+      padding: 0.5em 1em;
+    }
+
+    .prevBtn,
+    .nextBtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      color: black;
+      border: 1px solid black;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .prevBtn {
+      left: 0;
+    }
+
+    .nextBtn {
+      right: 0;
+    }
+
+    .prevBtn:hover,
+    .nextBtn:hover,
+    .prevBtn:focus,
+    .nextBtn:focus {
+      background: orange;
+    }
+
+    </style>
+</head>
+<body>
+  <body>
+    <!-- Container Pertama: 3 Card -->
+    <div class="wrap" id="carousel-1">
+      <button class="prevBtn toggle" data-toggle="prev">❮</button>
+      <ul class="carousel is-set">
+        <li class="carousel-seat is-ref">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 1</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 2</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 3</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 3</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 3</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 3</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card 3</div>
+          </div>
+        </li>
+      </ul>
+      <button class="toggle nextBtn" data-toggle="next">❯</button>
+    </div>
+  
+    <!-- Container Kedua: 5 Card -->
+    <div class="wrap" id="carousel-2">
+      <button class="prevBtn toggle" data-toggle="prev">❮</button>
+      <ul class="carousel is-set">
+        <li class="carousel-seat is-ref">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card A</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card B</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card C</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card D</div>
+          </div>
+        </li>
+        <li class="carousel-seat">
+          <div class="card">
+            <img src="/images/angko.jpg" alt="angko">
+            <div>Card E</div>
+          </div>
+        </li>
+      </ul>
+      <button class="toggle nextBtn" data-toggle="next">❯</button>
+    </div>
+    <script>
+      document.querySelectorAll('.wrap').forEach(carouselWrap => {
+        const $carousel = carouselWrap.querySelector('.carousel');
+        const $seats = $carousel.querySelectorAll('.carousel-seat');
+        const $toggles = carouselWrap.querySelectorAll('.toggle');
+    
+        $toggles.forEach(btn => {
+          btn.addEventListener('click', function () {
+            const $ref = $carousel.querySelector('.is-ref');
+            let $newSeat;
+    
+            $ref.classList.remove('is-ref');
+            if (btn.getAttribute('data-toggle') === 'next') {
+              $newSeat = next($ref);
+              $carousel.classList.remove('is-reversing');
+            } else {
+              $newSeat = prev($ref);
+              $carousel.classList.add('is-reversing');
+            }
+    
+            $newSeat.classList.add('is-ref');
+            $newSeat.style.order = 1;
+            let current = $newSeat;
+            for (let i = 2; i <= $seats.length; i++) {
+              current = next(current);
+              current.style.order = i;
+            }
+    
+            $carousel.classList.remove('is-set');
+            setTimeout(() => {
+              $carousel.classList.add('is-set');
+            }, 50);
+    
+            function next(el) {
+              return el.nextElementSibling || $carousel.firstElementChild;
+            }
+    
+            function prev(el) {
+              return el.previousElementSibling || $carousel.lastElementChild;
+            }
+          });
+        });
+      });
+    </script>
+    
+</body>
+</html>
